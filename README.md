@@ -1,3 +1,6 @@
 # masterDataScience portfolio
 
-### Juan Antonio Morales - Data Scientist
+## Juan Antonio Morales - Data Scientist
+
+###Technologies:
+- Git / Github
