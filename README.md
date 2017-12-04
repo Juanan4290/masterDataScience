@@ -5,3 +5,4 @@
 ### Technologies:
 - Git / Github
 - Shell scripting
+- SQL / PostgreSQL
