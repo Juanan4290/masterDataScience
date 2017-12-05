@@ -1,4 +1,6 @@
-# Shell Scripting: Quick Exercises 1
+# Shell Scripting 
+
+## Quick Exercises 1
 
 1. Create a directory “first_dir” in you home folder:
     ```
@@ -43,6 +45,30 @@
     ```
     >> rm -rf sub3
     ```
+
+## Quick Exercises 2
+
+1.  Go to data/shell/ directory and use less to open Finn.txt:
+    a) Locate the lines starting with “The”
+    b) Locate the lines ending with “works”
+    ```
+    > cd Data/shell
+    >>> less Finn.txt
+    ```
+    Use while reading:
+    /The
+    /works
+    q       #quit
+2.  Open ~/Data/opentraveldata/optd_aircraft.csv with less command. Search for “Canada” and then search for “Puma”:
+    ```
+    > cd
+    > cd Data/opentraveldata
+    >>> less optd_aircraft.csv
+    ```
+    Use while reading:
+    /Canada #Ctrl+N for next word and Shift+N for previous one
+    /Puma   #Ctrl+N for next word and Shift+N for previous one
+    q       #quit
 
 
 
