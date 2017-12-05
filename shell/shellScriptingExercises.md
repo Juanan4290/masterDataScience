@@ -56,8 +56,8 @@
     >>> less Finn.txt
     ```
     Use while reading:
-    /The
-    /works
+    /The \n
+    /works \n
     q       #quit
 2.  Open ~/Data/opentraveldata/optd_aircraft.csv with less command. Search for “Canada” and then search for “Puma”:
     ```
@@ -66,8 +66,8 @@
     >>> less optd_aircraft.csv
     ```
     Use while reading:
-    /Canada #Ctrl+N for next word and Shift+N for previous one
-    /Puma   #Ctrl+N for next word and Shift+N for previous one
+    /Canada #Ctrl+N for next word and Shift+N for previous one \n
+    /Puma   #Ctrl+N for next word and Shift+N for previous one \n
     q       #quit
 
 
