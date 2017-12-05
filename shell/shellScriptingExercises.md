@@ -56,8 +56,8 @@
     >>> less Finn.txt
     ```
     Use while reading:
-    /The \n
-    /works \n
+    /The <br />
+    /works <br />
     q       #quit
 2.  Open ~/Data/opentraveldata/optd_aircraft.csv with less command. Search for “Canada” and then search for “Puma”:
     ```
