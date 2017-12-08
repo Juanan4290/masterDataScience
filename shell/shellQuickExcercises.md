@@ -4,15 +4,15 @@
 
 1. Create a directory “first_dir” in you home folder:
     ```
-    > mkdir first_dir
+    >> mkdir first_dir
     ```
 2. Create an empty file “text_file.txt” inside “first_dir” directory:
     ```
-    > touch ./first_dir/text_file.txt
+    >> touch ./first_dir/text_file.txt
     ```
 3. Add execute permissions to group users, and write permissions to other users to “text_file.txt”:
     ```
-    > cd first_dir
+    >> cd first_dir
     >> chmod g+x,o+w text_file.txt
     ```
 4. Create 3 subdirectories inside “first_dir”: “sub1”, “sub2”, “text_file”:
@@ -34,11 +34,11 @@
 8.  Change file name of “sub3/text_file.txt” to “sub3/        text_file.txt.backup”:
     ```
     >> cd sub3
-    >>> mv text_file.txt text_file.txt.backup
+    >> mv text_file.txt text_file.txt.backup
     ```
 9.  Move “first_dir /sub3/text_file.txt.backup” to “first_dir” directory as hidden file:
     ```
-    >>> cd ..
+    >> cd ..
     >> mv ./sub3/text_file.txt.backup .text_file.txt.backup
     ```
 10. Delete the “sub3” subdirectory:
@@ -52,24 +52,24 @@
     a) Locate the lines starting with “The”
     b) Locate the lines ending with “works”
     ```
-    > cd Data/shell
-    >>> less Finn.txt
-    ```
+    >> cd Data/shell
+    >> less Finn.txt
+    ``
     Use while reading:<br />
     /The <br />
     /works <br />
     
 2.  Open ~/Data/opentraveldata/optd_aircraft.csv with less command. Search for “Canada” and then search for “Puma”:
     ```
-    > cd Data/opentraveldata
-    >>> less optd_aircraft.csv
+    >> cd Data/opentraveldata
+    >> less optd_aircraft.csv
     ```
     Use while reading:<br />
     /Canada #Ctrl+N for next word and Shift+N for previous one<br />
     /Puma<br />
 3.  Use help to find out how to get the list of subdirectories limited to 2 sublevels by using “tree” command:
     ```
-    > man tree
+    >> man tree
     ```
     Use while reading:<br />
     /level<br />
@@ -78,12 +78,12 @@
 
 1.  Go to ~/Data/Shell/ and use Text_example.txt to generate a new file with the same content but with line number at the beginning of each line:
     ```
-    > cd /Data/shell
-    >>> cat -n Text_example.txt > Text_example_ln.txt
+    >> cd /Data/shell
+    >> cat -n Text_example.txt > Text_example_ln.txt
     ```
 2.  Generate a new file with twice the content of “Text_example.txt” inside (one full text content after another):
     ```
-    >>> cat Text_example.txt Text_example.txt > Text_example_twice.txt
+    >> cat Text_example.txt Text_example.txt > Text_example_twice.txt
     ```
 3.  Open new shell inside a new terminal tab and using block search execute again the command where we printed the linux details (hint: it had “release” in the name):
     ```
@@ -95,22 +95,22 @@
 
 1.  Find all files located ONLY inside subdirectories of your home directory which have been modified in last 60min:
     ```
-    > find -mindepth 2 -type f -mmin -60
+    >> find -mindepth 2 -type f -mmin -60
     ```
 2.  Find all empty files inside subdirectories of your home directory which do NOT have read-write-execute permissions given to all users:
     ```
-    > find -mindepth 2 -type f -empty -not -perm 777
+    >> find -mindepth 2 -type f -empty -not -perm 777
     ```
 3.  Expand previous command to grant these permissions using “ok cmd” option:
     ```
-    > find -mindepth 2 -type f -empty -not -perm 777 -ok chmod 777 {} \;
+    >> find -mindepth 2 -type f -empty -not -perm 777 -ok chmod 777 {} \;
     ```
 
 ## Quick Exercises 5
 
 1.  Print first 3 lines of ~/Text_example.txt:
     ```
-    > cd Data/shell
+    >> cd Data/shell
     >> head -3 Text_example.txt
     ```
 2.  Print content of ~/Text_example.txt except first 2 and last 3 lines:
@@ -119,7 +119,7 @@
     ```
 3.  How many lines does ~/Data/opentraveldata/optd_aircraft.csv file have?
     ```
-    > cd Data/opentraveldata
+    >> cd Data/opentraveldata
     >> cat optd_aircraft.csv | wc -l
     ```
 
@@ -127,7 +127,7 @@
 
 1.  How many words do first 5 lines of the Finn.txt have:
     ```
-    > cat Finn.txt | wc -w
+    >> cat Finn.txt | wc -w
     ```
 2.  Save the information of 3 largest file inside your home directory into a file. (hint: use ls with sort option and pipe the result):
     ```
@@ -137,13 +137,3 @@
     ```
     history -20 > history20.txt
     ```
-
-
-
-
-
-
-
-
-
-
