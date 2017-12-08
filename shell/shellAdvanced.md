@@ -27,6 +27,23 @@
     ```
     >> sort -n 20lines.txt | uniq -c | sort -nk 1 -nk 2
     ```
+3.  Create another file with this command : seq 0 2 40 > 20lines2.txt:<br />
+    a)  Create 3rd file combining the first two files (20lines.txt and 20lines2.txt) but without duplicates:
+    ```
+    >> cat 20lines.txt 20lines2.txt > 20lines3.txt
+    >> sort -nu 20lines3.txt
+    ```
+    b) Merge the first two files. Print unique lines together with the number of occurrences inside the merged file and sorted based on line content:
+    ```
+    >> cat 20lines.txt 20lines2.txt | sort -n | uniq -c | sort -nk 1 -nk 2
+    ```
+4.  Go to ~/Data/opentraveldata and get the line with the highest number of engines from optd_aircraft.csv by using sort:
+    ```
+    >> cat -n optd_aircraft.csv | sort -nr -t "^" -k 7 | head -1
+    ```
+
+
+
 
 
 
