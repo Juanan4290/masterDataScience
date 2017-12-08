@@ -6,7 +6,7 @@
     ```
     >> find -type f -size +10M -exec ls -s {} \; | sort -nr | head -10
     ```
-2.  Create a dummy file with this command: seq 15 > 20lines.txt; seq 9 1 20 >> 20lines.txt; echo "20\n20" >> 20lines.txt; (check the content of file first):
+2.  Create a dummy file with this command: seq 15 > 20lines.txt; seq 9 1 20 >> 20lines.txt; echo "20\n20" >> 20lines.txt; (check the content of file first):<br />
     a)  Sort the lines of file based on alphanumeric characters:
     ```
     >> sort -d 20lines.txt
