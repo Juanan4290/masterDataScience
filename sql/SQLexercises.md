@@ -28,9 +28,12 @@ _Execute in @psql:_ <br />
 
 2.  Which airplane has the highest number of engines?
 (optd_aircraft):
+
 ```
->> 
+>> SELECT * FROM optd_aircraft WHERE nb_engines IS NOT NULL ORDER BY nb_engines DESC LIMIT 1;
+
 ```
+
 3.  What number of engines is most common on airplanes?
 (optd_aircraft):
 ```
