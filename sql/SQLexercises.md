@@ -1,18 +1,25 @@
 # SLQ Exercises
 
-1.  Import optd_aircraft.csv and optd_airlines.csv in postgres ( /Data/opentraveldata/):
+1.  Import optd_aircraft.csv and optd_airlines.csv in postgres ( /Data/opentraveldata/):<br />
+
+_Execute in @psql:_ <br />
+
+```
+>> CREATE DATABASE optd;
 ```
 
-_Execute in @psql:_
->> CREATE DATABASE optd;
+_Execute in @shell:_ <br />
 
-_Execute in @shell:_
+```
 >> csvsql -i postgresql -d '^' ~/Data/opentraveldata/optd_aircraft.csv > ~/Data/opentraveldata/optd_aircraft_create_table.txt
 >> csvsql -i postgresql -d '^' ~/Data/opentraveldata/optd_airlines.csv > ~/Data/opentraveldata/optd_airlines_create_table.txt
 >> psql -d optd -f ~/Data/opentraveldata/optd_aircraft_create_table.txt
 >> psql -d optd -f ~/Data/opentraveldata/optd_airlines_create_table.txt
+```
 
-_Execute in @psql:_
+_Execute in @psql:_ <br />
+
+```
 >> \c optd
 >>  \copy optd_aircraft from '~/Data/opentraveldata/optd_aircraft.csv' delimiter '^' csv header;
 >> \copy optd_airlines from '~/Data/opentraveldata/optd_airlines.csv' delimiter '^' csv header;
