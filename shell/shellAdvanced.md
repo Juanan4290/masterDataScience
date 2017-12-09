@@ -43,7 +43,7 @@
     ```
 
 ## Processing and filtering
-    Go to ~/Data/opentraveldata:<br />
+Go to ~/Data/opentraveldata:<br />
 1.  Change the delimiter of optd_aircraft.csv to “,”:
     ```
     >> cat optd_aircraft.csv | tr "^" ","
@@ -54,7 +54,8 @@
     >> cat optd_por_public.csv | tr -s " " | wc -m _#number of chracters without repeated white spaces_
     ```
 3. How many columns has optd_por_public.csv? (hint: use head and tr)
-    ```>> head -1 optd_por_public.csv | tr "^" "\n" | cat -n | wc -l
+    ```
+    >> head -1 optd_por_public.csv | tr "^" "\n" | cat -n | wc -l
     ```
 4. Print column names of optd_por_public.csv together with their column number. (hint: use paste)
     ```
