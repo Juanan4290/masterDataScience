@@ -1,7 +1,3 @@
-# Shell Script
-
-1. Create a script that will return column names together with their column number from the csv files. The first argument should be file name and the second delimiter.
-```
 #!/usr/bin/bash
 file=$1
 delimiter=$2
@@ -11,4 +7,3 @@ cat $file | head -1 | tr $delimiter '\n' | cat -n
 numCol=`cat $file | head -1 | tr $delimiter '\n' | cat -n | wc -l`
 
 echo "There are $numCol columns in $file"
-```
