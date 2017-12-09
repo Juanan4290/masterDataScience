@@ -21,7 +21,7 @@ _Execute in @psql:_ <br />
 
 ```
 >> \c optd
->>  \copy optd_aircraft from '~/Data/opentraveldata/optd_aircraft.csv' delimiter '^' csv header;
+>> \copy optd_aircraft from '~/Data/opentraveldata/optd_aircraft.csv' delimiter '^' csv header;
 >> \copy optd_airlines from '~/Data/opentraveldata/optd_airlines.csv' delimiter '^' csv header;
 
 ```
