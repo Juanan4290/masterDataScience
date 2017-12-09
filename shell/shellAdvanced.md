@@ -93,3 +93,28 @@ optd_airlines.csv
     ```
     >> find -type f -iname "*.txt" -exec grep -iH "Science" {} \;
     ```
+
+## Processing and filtering 3
+Use the following **Text_example.txt** file:
+
+```
+THIS LINE IS THE 1ST UPPER CASE LINE IN THIS FILE.
+this line is the 1st lower case line in this file.
+This Line Has All Its First Character Of The Word With Upper Case.
+
+Two lines above this line is empty.
+And this is the last line.
+```
+
+1.  Replace every “line” with new line character (“\n”):
+    ```
+    >> 
+    ```
+2.  Delete lines that contain the “line” word:
+    ```
+    >> 
+    ```
+3.  Print ONLY the lines that DON’T contain the “line” word:
+    ```
+    >> 
+    ```
