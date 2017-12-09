@@ -1,4 +1,4 @@
-# Shell Scripting 
+# Shell
 
 ## Quick Exercises 1
 

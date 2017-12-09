@@ -1,4 +1,4 @@
-# Shell Scripting
+# Shell
 
 ## Sorting and Counting
 
@@ -120,6 +120,7 @@ And this is the last line.
     ```
 
 ## Working with compressed files
+
 Go to ~/Data/us_dot/otp.
 1.  Show the content of one of the files:
     ```
