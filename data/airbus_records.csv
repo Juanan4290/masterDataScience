@@ -1,0 +1,45 @@
+iata_code|manufacturer|model|iata_group|iata_category|icao_code|nb_engines|aircraft_type
+19D|Airbus|A319|||||
+310|Airbus|A310|||||
+312|Airbus|A310-200|310|2J|A310|2|J
+313|Airbus|A310-300|310|2J|A310|2|J
+318|Airbus|A318|32S|2J|A318|2|J
+319|Airbus|A319|32S|2J|A319|2|J
+31F|Airbus|A310F|||||
+31W|Airbus|A319 (Sharklets)|||||
+31X|Airbus|A310-200F|31F|2J|A310|2|J
+31Y|Airbus|A310-300F|31F|2J|A310|2|J
+320|Airbus|A320-100/200|32S|2J|A320|2|J
+321|Airbus|A321-100/200|32S|2J|A321|2|J
+32A|Airbus|A320 (sharklets)|32S|2J|A320|2|J
+32B|Airbus|A321 (sharklets)|32S|2J|A321|2|J
+32C|Airbus|A318 (sharklets)|||||
+32D|Airbus|A319 (sharklets)|||||
+32F|Airbus|A320 Freighter|32F|2J|A320|2|J
+32X|Airbus|A321 Freighter|32X|2J|A321|2|J
+330|Airbus|A330|||||
+332|Airbus|A330-200|330|2J|A332|2|J
+333|Airbus|A330-300|330|2J|A333|2|J
+33F|Airbus|A330 Freighter|||||
+33X|Airbus|A330-200 Freighter|33F|2J|A332|2|J
+340|Airbus|A340|||||
+342|Airbus|A340-200|340|4J|A342|4|J
+343|Airbus|A340-300|340|4J|A343|4|J
+345|Airbus|A340-500|340|4J|A345|4|J
+346|Airbus|A340-600|340|4J|A346|4|J
+350|Airbus|A350|||||
+351|Airbus|A350-1000|350|2J|ZZZZ|2|J
+358|Airbus|A350-800|350|2J|ZZZZ|2|J
+359|Airbus|A350-900|350|2J|ZZZZ|2|J
+380|Airbus|A380|||||
+388|Airbus|A380|380|4J|A388|4|J
+38F|Airbus|A380F|38F|4J|A388|4|J
+AB2|Airbus|A300B2|||||
+AB3|Airbus|A300|||||
+AB4|Airbus|A300B2/B4/C4|AB3|2J|A30B|2|J
+AB6|Airbus|A300-600|AB3|2J|A306|2|J
+ABB|Airbus|A300-600ST Beluga|ABF|2J|A3ST|2|J
+ABF|Airbus|A300F|||||
+ABM|Airbus|A300-600 Mixed Configuration|||||
+ABX|Airbus|A300C4/F4 Freighter|ABF|2J|A30B|2|J
+ABY|Airbus|A300-600F|ABF|2J|A306|2|J
