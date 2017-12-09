@@ -108,13 +108,60 @@ And this is the last line.
 
 1.  Replace every “line” with new line character (“\n”):
     ```
-    >> 
+    >> sed "s/line/\n/g" Text_example.txt
     ```
 2.  Delete lines that contain the “line” word:
     ```
-    >> 
+    >> sed "/line/d" Text_example.txt
     ```
 3.  Print ONLY the lines that DON’T contain the “line” word:
     ```
-    >> 
+    >> sed -n '/line/!p' Text_example.txt
+    ```
+
+## Working with compressed files
+Go to ~/Data/us_dot/otp.
+1.  Show the content of one of the files:
+    ```
+    >> zless On_Time_On_Time_Performance_2015_1.zip 
+    ```
+2.  Use head/tail together with zcat command. Any difference in time execution?
+    ```
+    >> zcat On_Time_On_Time_Performance_2015_1.zip | head
+    >> zcat On_Time_On_Time_Performance_2015_1.zip | tail
+    ```
+3.  Compress “optd_por_public.csv” with bzip2 and then extract from the compressed file all the lines starting
+with MAD (hint: use bzcat and grep)
+    ```
+    >> bzip2 optd_por_public.csv
+    >> bzcat optd_por_public.csv.bz2 | grep -E '^MAD'
+    ```
+4.  (On_Time_On_Time_Performance_2015_1.zip): What are the column numbers of columns having “carrier”
+in the name? (don't count!)
+    ```
+    >> zcat On_Time_On_Time_Performance_2015_1.zip| head -1 | tr ',' '\n' | grep -i 'carrier' | cat -n
+    ```
+5.  (On_Time_On_Time_Performance_2015_1.zip) Print to screen, one field per line, the header and first line of the T100 file, side by side:
+    ```
+    >> paste <(seq 111) <(zcat On_Time_On_Time_Performance_2015_1.zip | head -1 | tr ',' '\n') <(zcat On_Time_On_Time_Performance_2015_1.zip | head -2 | tail -n -1 | tr ',' '\n')
+
+    ```
+
+## CSVkit Exercises
+
+1.  Use csvstat to find out how many different manufactures are in the file _optd_aircraft.csv_:
+    ```
+    >> csvstat -d '^' -c manufacturer optd_aircraft.csv
+    ```
+2.  Extract the column manufacturer and then by using pipes, sort, uniq and wc find out how many manufacturers are in the file. Why does this number differ to the number reported in csvstat?
+    ```
+    >> csvcut -d '^' -c manufacturer optd_aircraft.csv | sort | uniq | wc -l
+    ```
+3.  What are the top 5 manufacturers?
+    ```
+    >> csvcut -d '^' -c manufacturer optd_aircraft.csv | sort | uniq -c | sort -nr | head -5
+    ```
+4.  Using csvgrep, get only the records with manufacturer equal to Airbus and save them to a file with pipe (|) delimiter.
+    ```
+    >> csvgrep -d '^' -c manufacturer -m 'Airbus' optd_aircraft.csv | tr ',' '|' > airbus_records.csv
     ```
