@@ -42,6 +42,36 @@
     >> cat -n optd_aircraft.csv | sort -nr -t "^" -k 7 | head -1
     ```
 
+## Processing and filtering
+    Go to ~/Data/opentraveldata:<br />
+1.  Change the delimiter of optd_aircraft.csv to “,”:
+    ```
+    >> cat optd_aircraft.csv | tr "^" ","
+    ```
+2. Check if optd_por_public.csv has repeated white spaces (hint: use tr with wc):
+    ```
+    >> cat optd_por_public.csv | wc -m _#number of characters_
+    >> cat optd_por_public.csv | tr -s " " | wc -m _#number of chracters without repeated white spaces_
+    ```
+3. How many columns has optd_por_public.csv? (hint: use head and tr)
+    ```>> head -1 optd_por_public.csv | tr "^" "\n" | cat -n | wc -l
+    ```
+4. Print column names of optd_por_public.csv together with their column number. (hint: use paste)
+    ```
+    >> head -1 optd_por_public.csv | tr "^" "\n" | cat -n
+    ```
+5. Use optd_airlines.csv to obtain the airline with the most flights?
+    ```
+    >> cut -d "^" -f 8,14 optd_airlines.csv | sort -t "^" -nr -k 2 | head -1
+    ```
+6. Use optd_airlines.csv to obtain number of airlines in each alliance?
+    ```
+    >> cut -d "^" -f 10 optd_airlines.csv | sort -d | uniq -c
+    ```
+
+
+
+
 
 
 
