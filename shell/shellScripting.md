@@ -1,6 +1,7 @@
 # Shell Script
 
-1. Create a script that will return column names together with their column number from the csv files. The first argument should be file name and the second delimiter.
+1.  Create a script that will return column names together with their column number from the csv files. The first argument should be file name and the second delimiter.
+
 ```
 #!/usr/bin/bash
 file=$1
@@ -11,4 +12,17 @@ cat $file | head -1 | tr $delimiter '\n' | cat -n
 numCol=`cat $file | head -1 | tr $delimiter '\n' | cat -n | wc -l`
 
 echo "There are $numCol columns in $file"
+```
+2.  Create a script that accepts a CSV filename as input ($1 inside your script) and returns the model of the
+aircraft with the highest number of engines. (use it on ~/Data/opentraveldata/optd_aircraft.csv)
+
+```
+#!/usr/bin/bash
+file=$1
+
+model=`cut $file -d '^' -f 3,7 | sort -t '^' -nr -k 2 | head -1 | cut -d '^' -f 1`
+
+engines=`cut $file -d '^' -f 3,7 | sort -t '^' -nr -k 2 | head -1 | cut -d '^' -f 2`
+
+echo "The model with most engines is $model and it has $engines engines"
 ```
