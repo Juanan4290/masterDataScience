@@ -42,7 +42,8 @@
     >> cat -n optd_aircraft.csv | sort -nr -t "^" -k 7 | head -1
     ```
 
-## Processing and filtering
+## Processing and filtering 1
+
 Go to ~/Data/opentraveldata:<br />
 1.  Change the delimiter of optd_aircraft.csv to “,”:
     ```
@@ -50,8 +51,8 @@ Go to ~/Data/opentraveldata:<br />
     ```
 2. Check if optd_por_public.csv has repeated white spaces (hint: use tr with wc):
     ```
-    >> cat optd_por_public.csv | wc -m _#number of characters_
-    >> cat optd_por_public.csv | tr -s " " | wc -m _#number of chracters without repeated white spaces_
+    >> cat optd_por_public.csv | wc -m #number of characters
+    >> cat optd_por_public.csv | tr -s " " | wc -m #number of chracters without repeated white spaces
     ```
 3. How many columns has optd_por_public.csv? (hint: use head and tr)
     ```
@@ -70,15 +71,25 @@ Go to ~/Data/opentraveldata:<br />
     >> cut -d "^" -f 10 optd_airlines.csv | sort -d | uniq -c
     ```
 
+## Processing and filtering 2
 
-
-
-
-
-
-
-
-
-
-
-
+Go to ~/Data/opentraveldata
+1.  Use grep to extract all 7x7 or 3xx (where x can be any number) airplane models from optd_aircraft.csv.
+(hint: logical or = "|" )
+    ```
+    >> grep -E "7[0-9]7|3[0-9]{2}" optd_aircraft.csv
+    ```
+2.  Use grep to obtain the number of airlines with prefix “aero” (case unsensitive) in their name from
+optd_airlines.csv
+    ```
+    >> cut -d "^" -f 8 optd_airlines.csv | grep -Ei "^aero" |wc -l
+    ```
+3.  How many optd_por_public.csv columns have “name” as part of their name? What are their numerical positions? (hint: use seq and paste)
+    ```
+    >> paste <(seq 50) <(head -n 1 optd_por_public.csv|tr "^" "\n"|grep -E "?name?") #with paste and seq
+    >> head -n 1 optd_por_public.csv|tr "^" "\n"|grep -E "?name?" | cat -n #with cat instead of paste
+    ```
+4.  Find all files with txt extension that have word “Science” (case unsensitive) inside the content. Print file path and the line containing the (S/s)cience word.
+    ```
+    >> find -type f -iname "*.txt" -exec grep -iH "Science" {} \;
+    ```
