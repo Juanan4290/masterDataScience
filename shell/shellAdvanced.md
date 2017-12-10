@@ -95,7 +95,7 @@ optd_airlines.csv
     ```
 
 ## Processing and filtering 3
-Use the following **Text_example.txt** file:
+Use the following _Text_example.txt_ file:
 
 ```
 THIS LINE IS THE 1ST UPPER CASE LINE IN THIS FILE.
