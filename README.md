@@ -6,3 +6,4 @@
 - Git / Github
 - Shell Script
 - SQL / PostgreSQL
+- Python / iPython
