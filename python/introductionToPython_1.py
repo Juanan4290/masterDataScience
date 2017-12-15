@@ -29,8 +29,6 @@ def q2(a,b):
 # to have 100 years:
 
 def centenario(name,year):
-    if type(year)!=int:
+    if not isinstance(year,int):
         year=int(year)
-    
-    year100=100+year
-    return '{} will reach 100 years in {}'.format(name,year100)
+    return '{} will reach 100 years in {}'.format(name,year+100)
