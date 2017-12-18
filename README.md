@@ -7,3 +7,4 @@
 - Shell Script
 - SQL / PostgreSQL
 - Python / iPython
+- Jupyter Notebook
