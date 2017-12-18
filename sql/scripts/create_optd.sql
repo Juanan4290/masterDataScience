@@ -1,8 +1,9 @@
-DROP DATABASE optd;
+DROP DATABASE IF EXISTS optd;
 CREATE DATABASE optd;
 
 \c optd
 
+DROP TABLE IF EXISTS optd_airlines;
 CREATE TABLE optd_airlines (
 	pk VARCHAR(36) NOT NULL, 
 	env_id INTEGER, 
@@ -20,6 +21,7 @@ CREATE TABLE optd_airlines (
 	flt_freq INTEGER
 );
 
+DROP DATABASE IF EXISTS optd_aircraft;
 CREATE TABLE optd_aircraft (
 	iata_code VARCHAR(3) NOT NULL, 
 	manufacturer VARCHAR(30), 
@@ -31,6 +33,6 @@ CREATE TABLE optd_aircraft (
 	aircraft_type VARCHAR(4)
 );
 
-\copy optd_aircraft from '~/Documents/masterDataScience/sql/data/optd_aircraft.csv' delimiter '^' header csv;
+\copy optd_aircraft from '~/Documents/masterDataScience/data/optd_aircraft.csv' delimiter '^' header csv;
 
-\copy optd_airlines from '~/Documents/masterDataScience/sql/data/optd_airlines.csv' delimiter '^' header csv;
+\copy optd_airlines from '~/Documents/masterDataScience/data/optd_airlines.csv' delimiter '^' header csv;
