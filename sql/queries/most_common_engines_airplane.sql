@@ -1,3 +1,5 @@
+\c optd;
+
 SELECT nb_engines, COUNT(*) 
 FROM optd_aircraft 
 WHERE nb_engines IS NOT NULL 

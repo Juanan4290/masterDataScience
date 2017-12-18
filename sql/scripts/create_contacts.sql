@@ -21,3 +21,6 @@ CREATE TABLE linkedin (
 \copy facebook from '~/Documents/masterDataScience/data/my_fb_friends.csv' delimiter '^' header csv;
 
 \copy linkedin from '~/Documents/masterDataScience/data/my_ldin_contacts.csv' delimiter '^' header csv;
+
+ALTER TABLE facebook ADD PRIMARY KEY(email);
+ALTER TABLE linkedin ADD PRIMARY KEY(email);
