@@ -1,4 +1,4 @@
-# Master in Data Science - Juan Antonio Morales
+## Juan Antonio Morales - Data Scientist in the making
 
 ### Summary and objectives:
 
