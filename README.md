@@ -10,5 +10,11 @@ At the end of the master's degree the student will be able to convert data into 
 - Git / Github
 - Shell Script
 - BBDD SQL / PostgreSQL
-- Python / iPython
 - Jupyter Notebook
+- Python Scientific Stack:
+    · IPython
+    · NumPy
+    · Pandas
+    · Matplotlib
+    · SciPy
+    · Sympy
