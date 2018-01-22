@@ -15,7 +15,7 @@ At the end of the master's degree the student will be able to convert data into 
 - Python / IPython
 - Jupyter Notebook
 
-##### Python Libraries for Data Science
+#### Python Libraries for Data Science
 ```
 - NumPy
 - Pandas
