@@ -14,6 +14,7 @@ At the end of the master's degree the student will be able to convert data into 
 - BBDD SQL / PostgreSQL
 - Python / IPython
 - Jupyter Notebook
+- R / RStudio
 
 #### Python Libraries for Data Science
 ```
@@ -23,4 +24,10 @@ At the end of the master's degree the student will be able to convert data into 
 - Seaborn
 - SciPy
 - Sympy
+```
+
+#### R Libraries for Data Science
+```
+- dplyr
+- reshape2
 ```
