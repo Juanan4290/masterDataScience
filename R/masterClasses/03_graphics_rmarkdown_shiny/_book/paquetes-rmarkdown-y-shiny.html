@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Gráficos con R</title>
+  <meta name="description" content="Gráficos con R">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Gráficos con R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Gráficos con R" />
+  
+  
+  
+
+<meta name="author" content="Olivier Nuñez">
+
+
+<meta name="date" content="2018-01-19">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="graficos-avanzados-con-ggplot2.html">
+<link rel="next" href="referencias.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preámbulo</a></li>
+<li class="chapter" data-level="1" data-path="graficos-basicos.html"><a href="graficos-basicos.html"><i class="fa fa-check"></i><b>1</b> Gráficos básicos</a><ul>
+<li class="chapter" data-level="1.1" data-path="graficos-basicos.html"><a href="graficos-basicos.html#graficos-de-dispersion"><i class="fa fa-check"></i><b>1.1</b> Gráficos de dispersión</a></li>
+<li class="chapter" data-level="1.2" data-path="graficos-basicos.html"><a href="graficos-basicos.html#graficos-de-barra"><i class="fa fa-check"></i><b>1.2</b> Gráficos de barra</a></li>
+<li class="chapter" data-level="1.3" data-path="graficos-basicos.html"><a href="graficos-basicos.html#diagramas-de-caja-boxplots"><i class="fa fa-check"></i><b>1.3</b> Diagramas de caja (boxplots)</a></li>
+<li class="chapter" data-level="1.4" data-path="graficos-basicos.html"><a href="graficos-basicos.html#expotacion-de-los-graficos"><i class="fa fa-check"></i><b>1.4</b> Expotación de los graficos</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="graficos-avanzados-con-ggplot2.html"><a href="graficos-avanzados-con-ggplot2.html"><i class="fa fa-check"></i><b>2</b> Gráficos avanzados (con <code>ggplot2</code>)</a><ul>
+<li class="chapter" data-level="2.1" data-path="graficos-avanzados-con-ggplot2.html"><a href="graficos-avanzados-con-ggplot2.html#elementos-de-un-grafico-en-ggplot2"><i class="fa fa-check"></i><b>2.1</b> Elementos de un gráfico en <code>ggplot2</code></a><ul>
+<li class="chapter" data-level="2.1.1" data-path="graficos-avanzados-con-ggplot2.html"><a href="graficos-avanzados-con-ggplot2.html#datos"><i class="fa fa-check"></i><b>2.1.1</b> Datos</a></li>
+<li class="chapter" data-level="2.1.2" data-path="graficos-avanzados-con-ggplot2.html"><a href="graficos-avanzados-con-ggplot2.html#esteticas-aes"><i class="fa fa-check"></i><b>2.1.2</b> Estéticas (<code>aes</code>)</a></li>
+<li class="chapter" data-level="2.1.3" data-path="graficos-avanzados-con-ggplot2.html"><a href="graficos-avanzados-con-ggplot2.html#capas-geoms"><i class="fa fa-check"></i><b>2.1.3</b> Capas (<code>geoms</code>)</a></li>
+<li class="chapter" data-level="2.1.4" data-path="graficos-avanzados-con-ggplot2.html"><a href="graficos-avanzados-con-ggplot2.html#facetas"><i class="fa fa-check"></i><b>2.1.4</b> Facetas</a></li>
+<li class="chapter" data-level="2.1.5" data-path="graficos-avanzados-con-ggplot2.html"><a href="graficos-avanzados-con-ggplot2.html#toque-final-y-exportacion"><i class="fa fa-check"></i><b>2.1.5</b> Toque final y exportación</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="graficos-avanzados-con-ggplot2.html"><a href="graficos-avanzados-con-ggplot2.html#introduccion-a-ggmap"><i class="fa fa-check"></i><b>2.2</b> Introducción a ggmap</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="graficos-avanzados-con-ggplot2.html"><a href="graficos-avanzados-con-ggplot2.html#mas-ejemplos-de-mapas-con-puntos"><i class="fa fa-check"></i><b>2.2.1</b> Más ejemplos de mapas con puntos</a></li>
+<li class="chapter" data-level="2.2.2" data-path="graficos-avanzados-con-ggplot2.html"><a href="graficos-avanzados-con-ggplot2.html#mas-alla-de-los-puntos-densidades-y-poligonos"><i class="fa fa-check"></i><b>2.2.2</b> Más allá de los puntos: densidades y poligonos</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="graficos-avanzados-con-ggplot2.html"><a href="graficos-avanzados-con-ggplot2.html#extension-dinamica-de-los-graficos"><i class="fa fa-check"></i><b>2.3</b> Extensión dinamica de los graficos</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="paquetes-rmarkdown-y-shiny.html"><a href="paquetes-rmarkdown-y-shiny.html"><i class="fa fa-check"></i><b>3</b> Paquetes, rmarkdown y shiny</a><ul>
+<li class="chapter" data-level="3.1" data-path="paquetes-rmarkdown-y-shiny.html"><a href="paquetes-rmarkdown-y-shiny.html#rmarkdown"><i class="fa fa-check"></i><b>3.1</b> Rmarkdown</a></li>
+<li class="chapter" data-level="3.2" data-path="paquetes-rmarkdown-y-shiny.html"><a href="paquetes-rmarkdown-y-shiny.html#shiny"><i class="fa fa-check"></i><b>3.2</b> Shiny</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i><b>4</b> Referencias</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Gráficos con R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="paquetes-rmarkdown-y-shiny" class="section level1">
+<h1><span class="header-section-number">3</span> Paquetes, rmarkdown y shiny</h1>
+<p>Esta sección está dedicada a dos extensiones de R: <code>shiny</code> y <code>rmarkdown</code>. El primero de ellos permite crear cuadros de mando interactivos. El segundo, documentos automatizados que combinan texto con código, tablas y gráficos generados directamente por R.</p>
+<p>Estos dos paquetes no son complejos sino, más bien, extensos y llenos de detalles. El objetivo de esta sesión es recorrer sus posibilidades.</p>
+<div id="rmarkdown" class="section level2">
+<h2><span class="header-section-number">3.1</span> Rmarkdown</h2>
+<p>Rmarkdown permite generar documentos dinámicos al mezclar texto formateado y resultados generados R. Los documentos generados pueden estar en HTML, PDF, Word y muchos otros formatos.</p>
+<p>Las ventajas de esta herramienta son numerosas:</p>
+<ul>
+<li>El código y sus resultados no están separados de los comentarios asociados a ellos</li>
+<li>El documento final es reproducible</li>
+<li>El documento se puede actualizar fácilmente, por ejemplo, si los datos de origen se han modificado.</li>
+</ul>
+<p>Por lo tanto, es una herramienta muy práctica para exportar, comunicar y difundir resultados estadísticos.</p>
+<p>Este documento se ha generado a partir de archivos R Markdown ^ [Más precisamente gracias a la extensión <code>bookdown</code> que permite generar documentos de tipo libro].</p>
+<p>Aprender Rmarkdown implica aprender dos cosas distintas:</p>
+<ul>
+<li>Markdown, un <em>formato</em> para escribir documentos simples en modo texto. Tiene la ventaja de ser fácilmente legible por humanos pero, a la vez, procesable programáticamente para volcarlos en otros formatos: pdf, html, etc.</li>
+<li>La integración entre R y markdown</li>
+</ul>
+<p>Para aprender markdown, una tarea que no debería durar más de 10-15 minutos, se recomiendan los dos siguientes ejercicios.</p>
+<div class="ej">
+<p>
+Crea un fichero <code>.Rmd</code> usando <code>File &gt; New File &gt; R Markdown</code>.
+</p>
+</div>
+<p>Al crear un nuevo fichero de tipo <code>R Markdown</code>, RStudio proporciona, en lugar de uno vacío, una plantilla que muestra algunas de las opciones disponibles en este formato. Eso facilita el siguiente ejercicio:</p>
+<div class="ej">
+<p>
+Aprende markdown modificando el fichero de ejemplo creado en el ejercicio anterior añadiéndole títulos de varios niveles, párrafos de texto, cursivas, negritas, enlaces, listas (numeradas y sin numerar), etc. usando como guía el <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf"><code>Cheat Sheet</code></a> del paquete. Recuerda <em>compilar</em> el documento (p.e., pulsando el botón con la etiqueta <em>Knit HTML</em> situado encima del panel de edición de RStudio) para inspeccionar el resultado final.
+</p>
+</div>
+<p>Tambiénse pueden generar documentos en formato Word y PDF. Para estos tendrás que tener instalados los programas necesarios: MS Word, LibreOffice o similar para el primero y LaTeX para el segundo.</p>
+<p>El segundo de los componentes de Rmarkdown (y lo que lo diferencia de Markdown <em>a secas</em>) es la posibilidad de incorporar bloques de código en el hilo del documento. Estos bloques de código se procesan durante la compilación del documento y los resultados que generan (tablas, gráficos, etc.) se integran en la salida. La plantilla de fichero Rmarkdown que genera RStudio incluye unos cuantos ejemplos de bloques de código.</p>
+<div class="ej">
+<p>
+Inserta sobre tu documento (o sobre una nueva plantilla) bloques de código de R que hagan alguna cosa.
+</p>
+</div>
+<div class="nota">
+<p>
+Los bloques de código incluyen opciones en su encabezamiento (p.e., para que un bloque se ejecute o no; para que el código se muestre o se oculte en el documento final, etc.). Las opciones disponibles se pueden consultar en el <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf"><code>Cheat Sheet</code></a> del paquete.
+</p>
+</div>
+<p>Con Rmarkdown y sus extensiones se han escrito informes, artículos e, incluso, libros completos. Una de las grandes ventajas de integrar el texto y el código es que todo el proceso de generación del documento final es automático, sin necesidad de incorporar manualmente gráficos o tablas procedentes de terceros programas.</p>
+<p>Una consecuencia de creciente interés de la automatización del proceso es que evita los errores humanos (o cierto tipo de ellos) en la manipulación de datos. El documento, al contener el código, es en sí mismo la traza de las manipulaciones realizadas y un tercero, en caso de duda, puede reproducirse.</p>
+</div>
+<div id="shiny" class="section level2">
+<h2><span class="header-section-number">3.2</span> Shiny</h2>
+<p><code>shiny</code> es un paquete de R para la construcción de cuadros de mando <em>web</em> interactivos. Permite, por ejemplo, crear interfaces para algoritmos o acceder y manipular tablas de datos a través de controles de HMTL: <em>sliders</em>, botones, etc.</p>
+<p>El paquete proporciona varias aplicaciones de ejemplo que usaremos para aprender los rudimentos de <code>shiny</code>. Por ejemplo, se puede hacer</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(shiny)
+<span class="kw">runExample</span>(<span class="dt">example =</span> <span class="st">&quot;01_hello&quot;</span>)</code></pre></div>
+<p>para desplegar la aplicación de ejemplo <code>01_hello</code>. Esta aplicación pinta en el panel central un histograma y tiene en el lateral un <em>slider</em> con el que modular su granularidad (técnicamente, para definir el número de pedazos, <em>breaks</em>, en los que partir el rango de valores del vector subyacente).</p>
+<p>Para detener la aplicación, en RStudio, presiona sobre el icono de la señal de <em>stop</em> (en la parte superior de la ventana de la consola); en una terminal, usa Control-C para interrumpir la ejecución.</p>
+<div class="ej">
+<p>
+Ejecuta <code>runExample()</code> (sin argumento); el mensaje de error indica qué otros ejemplos además de <code>01_hello</code> están disponibles por defecto. Échales un vistazo a algunos.
+</p>
+</div>
+<div class="ej">
+<p>
+Crea tu primera aplicación en <code>shiny</code>. Para ello, despliega <code>01_hello</code>. Luego, copia los ficheros <code>ui.r</code> y <code>server.r</code> en un nuevo directorio vacío. Llámalo, por ejemplo, <code>prueba00</code>. Luego ejecuta <code>runApp(“prueba00”)</code> para desplegarla. (Nota: el argumento de <code>runApp</code> tiene que ser la ruta, sea absoluta o relativa, del directorio en cuestión; recuerda que una aplicación en <code>shiny</code> recibe el nombre del directorio que la contiene).
+</p>
+</div>
+<p>El ejercicio anterior muestra cómo construir aplicaciones en <code>shiny</code>. Una aplicación en <code>shiny</code> es un directorio quee da nombre a la aplicación. Dentro de él tiene que haber, como mínimo, dos ficheros: <code>ui.r</code> y <code>server.r</code>. El primero define la interfaz de la aplicación. El segundo realiza los cálculos en segundo plano cada vez que el usuario manipula los controles de la interfaz.</p>
+<p>Además de estos ficheros, en aplicaciones más complejas, puede haber otros organizados o no en subdirectorios: datos, otros ficheros auxiliares de código, logos, CSSs, imágenes estáticas, etc. Tendrás que leer la documentación de <code>shiny</code> para averiguar cómo y dónde colocar estos recursos adicionales.</p>
+<p>Los dos ejercicios siguientes, opcionales, bastante avanzados y que tienen más que ver con la administración de sistemas Linux que con R, muestran cómo una aplicación desarrollada en Shiny puede ser puesta <em>en producción</em> y distribuida a los usuarios a través de la <em>web</em>.</p>
+<div class="ej">
+<p>
+Instala <em>Shiny Server</em> (busca en internet la página de descarga de esa aplicación) en tu máquina Linux. Guarda tus ficheros <code>ui.r</code> y <code>server.r</code> en el directorio adecuado y accede a ellas a través de tu navegador (puerto 3737). Nota: existen tutoriales bastante detallados sobre cómo hacer esto.
+</p>
+</div>
+<div class="ej">
+<p>
+Como continuación del ejercicio anterior, da salida a <code>shiny</code> a través del puerto 80 vía Apache u otros.
+</p>
+</div>
+<p><code>ui.r</code> y <code>server.r</code> se comunican entre sí: <code>ui.r</code> tiene que pasarle parámetros a <code>server.r</code> y este resultados a aquel. Esto se hace a través de variables y estructuras de datos con una forma muy particular. El siguiente ejercicio está pensado para que descubras el mecanismo de comunicación. Se te va a pedir que traduzcas el nombre de las variables y los parámetros al español. Obviamente, al traducir las variables en uno de los ficheros se romperá la aplicación. Realinear los nombres en el otro fichero te servirá para identificar los mecanismos de comunicación.</p>
+<div class="ej">
+<p>
+Crea <code>prueba01</code> como una copia de prueba00. Entonces, traduce al español el nombre de todas las variables implicadas en la aplicación.
+</p>
+</div>
+<p>El siguiente ejercicio te enseñará a modificar la interfaz de una aplicación en <code>shiny</code>, incorporar nuevos controles y añadir el código subyacente para que responda adecuadamente.</p>
+<div class="ej">
+<p>
+Añade a la aplicación <code>prueba01</code> otro <em>slider</em> que mueva una linea vertical roja que dibujes sobre el histograma. Es recomendable que comiences, y en este orden, añadiendo una línea roja en algún punto (del eje x) prefijado con la función <code>abline</code>, incorporando el <em>slider</em> y finalmente, vinculando el valor proporcionado por el <em>slider</em> al punto del eje x.
+</p>
+<p>
+Nota: cuando modifiques <code>ui.r</code>, presta atención a la estructura del programa y cómo se corresponde a la de la interfaz web: qué es lo que va en la barra lateral, qué en el panel central, etc. Ten cuidado además con los paréntesis: ¡hay muchos y es fácil desemparejarlos!
+</p>
+</div>
+<div class="ej">
+<p>
+Inspecciona el tutorial de <code>shiny</code> (<a href="http://shiny.rstudio.com/tutorial/"><code><a href="http://shiny.rstudio.com/tutorial/" class="uri">http://shiny.rstudio.com/tutorial/</a></code></a>) para descubrir qué tipo <em>widgets</em> (además de <em>sliders</em>) existen, cómo se procesan esos <em>inputs</em> en <code>server.r</code>, etc. Recuerda que ese tutorial es la principal fuente de información sobre todo lo relacionado con <code>shiny</code>.
+</p>
+</div>
+<div class="ej">
+<p>
+Visita la galería de aplicaciones de <code>shiny</code> (<a href="http://shiny.rstudio.com/gallery/"><code><a href="http://shiny.rstudio.com/gallery/" class="uri">http://shiny.rstudio.com/gallery/</a></code></a>) para investigar cómo implementar controles, qué tipos adicionales de paneles existen, etc.
+</p>
+</div>
+<p>Uno de los asuntos (avanzados) que se discuten en esas páginas es el de las reacciones: <code>shiny</code> está basado en un tipo de programación denominada <em>reactiva</em>, que es la que permite que las funciones de <code>server.r</code> simulen estar escuchando (y <em>reaccionen</em>) a los cambios que realiza el usuario en los controles de la aplicación. Puedes buscar en internet más información sobre la <em>programación reactiva</em> si te interesa el tema.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="graficos-avanzados-con-ggplot2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="referencias.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["graficosConR.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

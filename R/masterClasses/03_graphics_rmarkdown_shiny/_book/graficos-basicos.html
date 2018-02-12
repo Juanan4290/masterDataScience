@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Gráficos con R</title>
+  <meta name="description" content="Gráficos con R">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Gráficos con R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Gráficos con R" />
+  
+  
+  
+
+<meta name="author" content="Olivier Nuñez">
+
+
+<meta name="date" content="2018-02-06">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+<link rel="next" href="graficos-avanzados-con-ggplot2.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preámbulo</a></li>
+<li class="chapter" data-level="1" data-path="graficos-basicos.html"><a href="graficos-basicos.html"><i class="fa fa-check"></i><b>1</b> Gráficos básicos</a><ul>
+<li class="chapter" data-level="1.1" data-path="graficos-basicos.html"><a href="graficos-basicos.html#graficos-de-dispersion"><i class="fa fa-check"></i><b>1.1</b> Gráficos de dispersión</a></li>
+<li class="chapter" data-level="1.2" data-path="graficos-basicos.html"><a href="graficos-basicos.html#graficos-de-barra"><i class="fa fa-check"></i><b>1.2</b> Gráficos de barra</a></li>
+<li class="chapter" data-level="1.3" data-path="graficos-basicos.html"><a href="graficos-basicos.html#histogramas"><i class="fa fa-check"></i><b>1.3</b> Histogramas</a></li>
+<li class="chapter" data-level="1.4" data-path="graficos-basicos.html"><a href="graficos-basicos.html#diagramas-de-caja-boxplots"><i class="fa fa-check"></i><b>1.4</b> Diagramas de caja (boxplots)</a></li>
+<li class="chapter" data-level="1.5" data-path="graficos-basicos.html"><a href="graficos-basicos.html#expotacion-de-los-graficos"><i class="fa fa-check"></i><b>1.5</b> Expotación de los graficos</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="graficos-avanzados-con-ggplot2.html"><a href="graficos-avanzados-con-ggplot2.html"><i class="fa fa-check"></i><b>2</b> Gráficos avanzados (con <code>ggplot2</code>)</a><ul>
+<li class="chapter" data-level="2.1" data-path="graficos-avanzados-con-ggplot2.html"><a href="graficos-avanzados-con-ggplot2.html#elementos-de-un-grafico-en-ggplot2"><i class="fa fa-check"></i><b>2.1</b> Elementos de un gráfico en <code>ggplot2</code></a><ul>
+<li class="chapter" data-level="2.1.1" data-path="graficos-avanzados-con-ggplot2.html"><a href="graficos-avanzados-con-ggplot2.html#datos"><i class="fa fa-check"></i><b>2.1.1</b> Datos</a></li>
+<li class="chapter" data-level="2.1.2" data-path="graficos-avanzados-con-ggplot2.html"><a href="graficos-avanzados-con-ggplot2.html#esteticas-aes"><i class="fa fa-check"></i><b>2.1.2</b> Estéticas (<code>aes</code>)</a></li>
+<li class="chapter" data-level="2.1.3" data-path="graficos-avanzados-con-ggplot2.html"><a href="graficos-avanzados-con-ggplot2.html#capas-geoms"><i class="fa fa-check"></i><b>2.1.3</b> Capas (<code>geoms</code>)</a></li>
+<li class="chapter" data-level="2.1.4" data-path="graficos-avanzados-con-ggplot2.html"><a href="graficos-avanzados-con-ggplot2.html#facetas"><i class="fa fa-check"></i><b>2.1.4</b> Facetas</a></li>
+<li class="chapter" data-level="2.1.5" data-path="graficos-avanzados-con-ggplot2.html"><a href="graficos-avanzados-con-ggplot2.html#toque-final-y-exportacion"><i class="fa fa-check"></i><b>2.1.5</b> Toque final y exportación</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="graficos-avanzados-con-ggplot2.html"><a href="graficos-avanzados-con-ggplot2.html#introduccion-a-ggmap"><i class="fa fa-check"></i><b>2.2</b> Introducción a ggmap</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="graficos-avanzados-con-ggplot2.html"><a href="graficos-avanzados-con-ggplot2.html#mas-ejemplos-de-mapas-con-puntos"><i class="fa fa-check"></i><b>2.2.1</b> Más ejemplos de mapas con puntos</a></li>
+<li class="chapter" data-level="2.2.2" data-path="graficos-avanzados-con-ggplot2.html"><a href="graficos-avanzados-con-ggplot2.html#mas-alla-de-los-puntos-densidades-y-poligonos"><i class="fa fa-check"></i><b>2.2.2</b> Más allá de los puntos: densidades y poligonos</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="graficos-avanzados-con-ggplot2.html"><a href="graficos-avanzados-con-ggplot2.html#extension-dinamica-de-los-graficos"><i class="fa fa-check"></i><b>2.3</b> Extensión dinamica de los graficos</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="rmarkdown-y-shiny.html"><a href="rmarkdown-y-shiny.html"><i class="fa fa-check"></i><b>3</b> Rmarkdown y shiny</a><ul>
+<li class="chapter" data-level="3.1" data-path="rmarkdown-y-shiny.html"><a href="rmarkdown-y-shiny.html#rmarkdown"><i class="fa fa-check"></i><b>3.1</b> Rmarkdown</a></li>
+<li class="chapter" data-level="3.2" data-path="rmarkdown-y-shiny.html"><a href="rmarkdown-y-shiny.html#shiny"><i class="fa fa-check"></i><b>3.2</b> Shiny</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i><b>4</b> Referencias</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Gráficos con R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="graficos-basicos" class="section level1">
+<h1><span class="header-section-number">1</span> Gráficos básicos</h1>
+<p>Esta sección es una rapida introducción a los gráficos básicos en R. Estos gráficos sirven esencialmente para examinar de manera visual y rápida conjuntos de datos. Vamos a examinar los más habituales. Existen, sin embargo, muchos tipos más y hay libros enteros dedicados a ellos.</p>
+<div id="graficos-de-dispersion" class="section level2">
+<h2><span class="header-section-number">1.1</span> Gráficos de dispersión</h2>
+<p>Los gráficos de dispersión muestran la relación entre dos variables numéricas. En el ejemplo siguiente serán la velocidad y la distancia de frenado de un conjunto de coches recogidas en el conjunto de datos <code>cars</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(speed~dist,<span class="dt">data=</span>cars)</code></pre></div>
+<p><img src="graficosConR_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<div class="nota">
+<p>
+La notación <code>y ~ x</code> es muy común en R y significa que se hace algo con <code>y</code> en función de <code>x</code>; en este caso, ese “algo”&quot; es un grafico de <code>y</code> respecto a <code>x</code>. En los modelos de regresión, donde se pretende explicar las variaciones de <code>y</code> mediante las de <code>x</code>, se hará también uso de esta notación.
+</p>
+</div>
+<p>Los gráficos admiten opciones y elementos adicionales que van añadiéndose progresivamente al lienzo:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(speed~dist,<span class="dt">data=</span>cars, <span class="dt">ylab=</span><span class="st">&quot;Velocidad (milla por hora)&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Distancia (pies)&quot;</span>)
+<span class="kw">abline</span>(<span class="kw">lm</span>(speed~dist,<span class="dt">data=</span>cars))
+<span class="kw">grid</span>()</code></pre></div>
+<p><img src="graficosConR_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<div class="ej">
+<p>
+Consulta ?par, una página de ayuda en R que muestra gran cantidad de parámetros modificables en un gráfico. &gt; Investiga y usa col, lty y lwd. Nota: casi nadie conoce estos parámetros y, menos, de memoria; pero está bien saber que existen por si un día procede utilizarlos.
+</p>
+</div>
+<p>Lo anterior, se puede generalizar al análisis de más de dos variables mediante la función <code>pairs()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(trees)&lt;-<span class="kw">c</span>(<span class="st">&quot;Diametro&quot;</span>,<span class="st">&quot;Altura&quot;</span>,<span class="st">&quot;Volumen&quot;</span>)
+<span class="kw">pairs</span>(trees, <span class="dt">panel =</span> panel.smooth, <span class="dt">main =</span> <span class="st">&quot;Medidas de 31 arboles&quot;</span>)</code></pre></div>
+<p><img src="graficosConR_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+</div>
+<div id="graficos-de-barra" class="section level2">
+<h2><span class="header-section-number">1.2</span> Gráficos de barra</h2>
+<p>Los gráficos de barras muestran los valores de un vector, típicamente construido como el promedio de una serie de variables numéricas o el conteo de unas categóricas.</p>
+<p>Utilizamos la base de datos <code>VADeaths</code> que proporciona las tasas de mortalidad en Virginia por grupos socio-demograficos:</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">Rural Male</th>
+<th align="right">Rural Female</th>
+<th align="right">Urban Male</th>
+<th align="right">Urban Female</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>50-54</td>
+<td align="right">11.7</td>
+<td align="right">8.7</td>
+<td align="right">15.4</td>
+<td align="right">8.4</td>
+</tr>
+<tr class="even">
+<td>55-59</td>
+<td align="right">18.1</td>
+<td align="right">11.7</td>
+<td align="right">24.3</td>
+<td align="right">13.6</td>
+</tr>
+<tr class="odd">
+<td>60-64</td>
+<td align="right">26.9</td>
+<td align="right">20.3</td>
+<td align="right">37.0</td>
+<td align="right">19.3</td>
+</tr>
+<tr class="even">
+<td>65-69</td>
+<td align="right">41.0</td>
+<td align="right">30.9</td>
+<td align="right">54.6</td>
+<td align="right">35.1</td>
+</tr>
+<tr class="odd">
+<td>70-74</td>
+<td align="right">66.0</td>
+<td align="right">54.3</td>
+<td align="right">71.1</td>
+<td align="right">50.0</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">barplot</span>(VADeaths[, <span class="dv">2</span>], <span class="dt">xlab =</span> <span class="st">&quot;Tramos de edad&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Tasa de mortalidad (por 1000 mujeres)&quot;</span>, 
+        <span class="dt">main =</span> <span class="st">&quot;Tasa de mortalidad en Virginia </span><span class="ch">\n</span><span class="st"> (mujeres en ambito rural, 1940)&quot;</span>)</code></pre></div>
+<p><img src="graficosConR_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>Los gráficos de puntos son alternativas recomendadas a las tradicionales barras:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dotchart</span>(<span class="kw">t</span>(VADeaths),  <span class="dt">main =</span> <span class="st">&quot;Tasa de mortalidad (por 1000 hab.), Virginia (1940)&quot;</span>, <span class="dt">cex =</span> <span class="fl">0.8</span>)</code></pre></div>
+<p><img src="graficosConR_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<div class="ej">
+<p>
+Mejorar el gráfico de barra siguiente con los parámetro <code>col</code> (de color), <code>horiz</code>(de horizontal) e <code>ylog</code> (escala log). Aplicar <code>dotchart</code> a las superficies ordenadas.
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">barplot</span>(islands, <span class="dt">main =</span> <span class="st">&quot;Superficie de las islas más grandes (en millas cuadradas&quot;</span>)</code></pre></div>
+<p><img src="graficosConR_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+</div>
+<div id="histogramas" class="section level2">
+<h2><span class="header-section-number">1.3</span> Histogramas</h2>
+<p>El histograma es una representación gráfica de la distribución de una variable númerica que permite hacerse una rapida idea de como se distribuyen los datos en la recta real (p.e., las alturas de un conjunto de personas).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(MASS) <span class="co">#para cargar el conjunto de datos survey</span>
+<span class="kw">names</span>(survey)</code></pre></div>
+<pre><code>##  [1] &quot;Sex&quot;    &quot;Wr.Hnd&quot; &quot;NW.Hnd&quot; &quot;W.Hnd&quot;  &quot;Fold&quot;   &quot;Pulse&quot;  &quot;Clap&quot;  
+##  [8] &quot;Exer&quot;   &quot;Smoke&quot;  &quot;Height&quot; &quot;M.I&quot;    &quot;Age&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">alturas=<span class="kw">na.omit</span>(survey$Height)
+<span class="kw">hist</span>(alturas,<span class="dt">labels=</span><span class="ot">TRUE</span>,<span class="dt">las=</span><span class="dv">1</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">50</span>),<span class="dt">main=</span><span class="st">&quot;Altura de estudiantes de la Universidad de Adelaide&quot;</span>)</code></pre></div>
+<p><img src="graficosConR_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p>El número de barra es arbitrario y puede distorsionar nuestra idea de la distribución:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(alturas,<span class="dt">breaks=</span><span class="dv">20</span>,<span class="dt">proba =</span> <span class="ot">TRUE</span>,<span class="dt">col=</span><span class="st">&quot;lightblue&quot;</span>,<span class="dt">border=</span><span class="st">&quot;blue4&quot;</span>)</code></pre></div>
+<p><img src="graficosConR_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p>Ajuste con una distribución normal (¡malo!):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(alturas,<span class="dt">breaks=</span><span class="dv">20</span>,<span class="dt">proba =</span> <span class="ot">TRUE</span>,<span class="dt">col=</span><span class="st">&quot;lightblue&quot;</span>,<span class="dt">border=</span><span class="st">&quot;blue4&quot;</span>,<span class="dt">main=</span><span class="st">&quot;Ajuste con la normal&quot;</span>)
+m=<span class="kw">mean</span>(alturas);s=<span class="kw">sd</span>(alturas)
+x=<span class="kw">seq</span>(<span class="kw">min</span>(alturas),<span class="kw">max</span>(alturas),.<span class="dv">1</span>)
+p=<span class="kw">dnorm</span>(x,m,s)
+<span class="kw">lines</span>(x,p,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</code></pre></div>
+<p><img src="graficosConR_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<div class="ej">
+<p>
+Estudiar la distribución del pulso de estos alumnos. Usar <code>col</code> para mejorar el aspecto del gráfico. Añádir un título y una etiqueta en el eje horizontal. Usar la función <code>abline</code> para dibujar una línea vertical roja en la media de la distribución.
+</p>
+</div>
+</div>
+<div id="diagramas-de-caja-boxplots" class="section level2">
+<h2><span class="header-section-number">1.4</span> Diagramas de caja (boxplots)</h2>
+<p>Los diagramas de caja son parecidos a los histogramas porque resumen la distribución de una variable continua (mediante una caja y unos segmentos que acotan las regiones donde la variable tiene el grueso de las observaciones). La representación es menos fina que la del histograma pero es más robusta (menos sensible a valores extremos).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(survey$Height, <span class="dt">col =</span> <span class="st">&quot;gray&quot;</span>,<span class="dt">main =</span> <span class="st">&quot;Altura de los estudiantes&quot;</span>)
+<span class="kw">rug</span>(survey$Height, <span class="dt">side =</span> <span class="dv">2</span>)</code></pre></div>
+<p><img src="graficosConR_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(Height ~<span class="st"> </span>Sex, <span class="dt">data=</span>survey, <span class="dt">notch=</span><span class="ot">TRUE</span>, <span class="dt">col =</span> <span class="st">&quot;gray&quot;</span>,<span class="dt">main =</span> <span class="st">&quot;Altura según sexo&quot;</span>)</code></pre></div>
+<p><img src="graficosConR_files/figure-html/unnamed-chunk-15-2.png" width="672" /></p>
+<div class="ej">
+<p>
+Estudiar la distribución del pulso según el sexo mediante la función <code>boxplot</code>.
+</p>
+</div>
+</div>
+<div id="expotacion-de-los-graficos" class="section level2">
+<h2><span class="header-section-number">1.5</span> Expotación de los graficos</h2>
+<p>Los graficos se pueden exportar en diversos formatos:</p>
+<ul>
+<li>Imagen tipo bitmap (<code>jpeg()</code>,<code>png()</code>,<code>bmp()</code>,<code>tiff()</code>,…)</li>
+<li>Imagen vectorial (<code>pdf()</code>,<code>svg()</code>,…)</li>
+</ul>
+<p>Para más información consultar la ayuda <code>?Devices</code></p>
+<p>Ejemplo de uso:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pdf</span>(<span class="st">&quot;mifichero.pdf&quot;</span>)
+<span class="kw">boxplot</span>(Height ~<span class="st"> </span>Sex, <span class="dt">data=</span>survey, <span class="dt">notch=</span><span class="ot">TRUE</span>, <span class="dt">col =</span> <span class="st">&quot;gray&quot;</span>,<span class="dt">main =</span> <span class="st">&quot;Altura según sexo&quot;</span>)
+<span class="kw">dev.off</span>()
+
+<span class="kw">png</span>(<span class="st">&quot;mifichero.png&quot;</span>)
+<span class="kw">boxplot</span>(Height ~<span class="st"> </span>Sex, <span class="dt">data=</span>survey, <span class="dt">notch=</span><span class="ot">TRUE</span>, <span class="dt">col =</span> <span class="st">&quot;gray&quot;</span>,<span class="dt">main =</span> <span class="st">&quot;Altura según sexo&quot;</span>)
+<span class="kw">dev.off</span>()</code></pre></div>
+<p>Guarda el graficos en formato pdf y png en ficheros del directorio de trabajo</p>
+<div class="nota">
+<p>
+Las imagenes vectoriales tienen una resolución “infinita”&quot; y ocupan poca memoria. Sin embargo, no todos los editores de texto admiten este tipo de formato.
+</p>
+</div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="graficos-avanzados-con-ggplot2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["graficosConR.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
