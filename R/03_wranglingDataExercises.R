@@ -18,9 +18,74 @@ amzn <- getSymbols('AMZN', from = "2014-01-01",auto.assign = F)
 googl <- getSymbols('GOOGL', from = "2014-01-01",auto.assign = F)
 stocks <- cbind(amzn,googl)
 
-
+stocks <- as.data.frame(stocks)
 
 # Algorithm with loops:
+
+date <- c()
+site <- c()
+value <- c()
+
+for (stock in 2:nrow(stocks)){
+  
+  amznStock <- stocks$AMZN.Open[stock] - stocks$AMZN.Open[stock - 1]
+  googlStock <- stocks$GOOGL.Open[stock] - stocks$GOOGL.Open[stock - 1]
+
+  if ((amznStock > 0) & (googlStock > 0)){
+    
+    date <- rbind(date, rownames(stocks[stock,]))
+    
+    if (amznStock > googlStock){
+     
+      site <- rbind(site, "amazon")
+      value <- rbind(value, stocks$AMZN.Open[stock])
+    
+    }
+    
+    else { # if the stock difference is the same in amzn and google, we will buy google
+      
+      site <- rbind(site, "google")
+      value <- rbind(value, stocks$GOOGL.Open[stock])
+    
+    }
+    
+  }
+  
+}
+
+purchases <- data.frame(date = date[,1],
+                        stock = site[,1],
+                        value = value[,1])
+
+# Algorithm with vertorization
+
+amazonDiff <- diff(stocks$AMZN.Open)
+googlDiff <- diff(stocks$GOOGL.Open)
+
+stocksDiff <- data.frame(stocks[2:nrow(stocks),])
+stocksDiff$AMZN.Diff <- amazonDiff
+stocksDiff$GOOGL.Diff <- googlDiff
+
+getStock <- function(date,amaznOpen, googlOpen, amaznDiff, googlDiff){
+    
+  if (amaznDiff > googlDiff){
+    return(c(date,"amazon",as.double(amaznOpen)))
+  }
+  
+  else return(c(date,"google",as.double(googlOpen)))
+}
+
+
+stocksDiff <- add_rownames(stocksDiff, "date")
+
+purchasesVectorized <- stocksDiff %>%
+  select(date,AMZN.Open, GOOGL.Open, AMZN.Diff, GOOGL.Diff) %>%
+  filter((AMZN.Diff > 0) & (GOOGL.Diff > 0)) %>%
+  apply(1,function(x) getStock(x[1], x[2], x[3], x[4], x[5])) %>% t %>% as.data.frame
+
+colnames(purchasesVectorized) <- c("date","site","value")
+purchasesVectorized$date <- as.character(purchasesVectorized$date)
+purchasesVectorized$value <- as.numeric(as.character(purchasesVectorized$value))
 
 
 ## 3. For this exercise we will use the `airquality` dataset. 
