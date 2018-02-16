@@ -15,6 +15,8 @@ At the end of the master's degree the student will be able to convert data into 
 - Python / IPython
 - Jupyter Notebook
 - R / RStudio
+- RMarkdown
+- Shiny
 
 #### Python Libraries for Data Science
 ```
@@ -30,4 +32,6 @@ At the end of the master's degree the student will be able to convert data into 
 ```
 - dplyr
 - reshape2
+- ggplot2
+- shiny
 ```
