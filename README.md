@@ -18,20 +18,11 @@ At the end of the master's degree the student will be able to convert data into 
 - RMarkdown
 - Shiny
 
-#### Python Libraries for Data Science
-```
-- NumPy
-- Pandas
-- Matplotlib
-- Seaborn
-- SciPy
-- Sympy
-```
-
-#### R Libraries for Data Science
-```
-- dplyr
-- reshape2
-- ggplot2
-- shiny
-```
+### Topics covered:
+- Version control system with __Git__ and __GitHub__.
+- Handling files and cleaning data on the __Shell__.
+- __SQL__ queries with PostgreSQL.
+- Data wrangling with __Python__ (_pandas, numPy and matplotlib_) and __R__ (_dplyr, data.table and ggplot2_).
+- __Jupyter-Notebook__ and __RMarkdown__ reporting.
+- Applications for Data Visualization using __Shiny__.
+- __Web Scraping__ with _BeautifulSoup_ and _request_ libraries in Python and _rvest_ and _tidytext_ in R.
