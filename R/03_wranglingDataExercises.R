@@ -1,4 +1,4 @@
-## Wrangling data with R
+### Wrangling data with R
 
 # Importing libraries:
   
@@ -7,10 +7,10 @@ library(quantmod)
 library(datasets)
 library(nycflights13)
 
-## 1. Taking real data from amazon and google stocks, make an algorithm that perfoms 
-## the following: if from one day to another the amazon and google stocks go up, 
-## the algorithm will buy the stock that has the higest rise.
-## _Note_: use `Open` column.
+# 1. Taking real data from amazon and google stocks, make an algorithm that perfoms
+# the following: if from one day to another the amazon and google stocks go up,
+# the algorithm will buy the stock that has the higest rise.
+# _Note_: use `Open` column.
 
 # Amazon and Google stocks:
 
@@ -22,70 +22,83 @@ stocks <- as.data.frame(stocks)
 
 # Algorithm with loops:
 
-date <- c()
-site <- c()
-value <- c()
-
-for (stock in 2:nrow(stocks)){
+puntosDeCompra <- function(precioA, precioB) {
   
-  amznStock <- stocks$AMZN.Open[stock] - stocks$AMZN.Open[stock - 1]
-  googlStock <- stocks$GOOGL.Open[stock] - stocks$GOOGL.Open[stock - 1]
-
-  if ((amznStock > 0) & (googlStock > 0)){
+  resultado <- integer(length(precioA))
+  for (i in 1:(length(precioA)-1)) {
+    deltaA <- precioA[[i+1]] - precioA[[i]]
+    deltaB <- precioB[[i+1]] - precioB[[i]]
     
-    date <- rbind(date, rownames(stocks[stock,]))
-    
-    if (amznStock > googlStock){
-     
-      site <- rbind(site, "amazon")
-      value <- rbind(value, stocks$AMZN.Open[stock])
-    
-    }
-    
-    else { # if the stock difference is the same in amzn and google, we will buy google
-      
-      site <- rbind(site, "google")
-      value <- rbind(value, stocks$GOOGL.Open[stock])
-    
-    }
-    
+    if (deltaA >0 & deltaB > 0) 
+      resultado[i+1] <- ifelse(deltaA > deltaB, 1, 2) # (deltaA < deltaB) + 1 --> forma hacker
   }
-  
+  resultado
 }
 
-purchases <- data.frame(date = date[,1],
-                        stock = site[,1],
-                        value = value[,1])
+backtesting <- function(precioA, precioB, stock) {
+  
+  precioFinalA <- precioA[length(precioA)]
+  precioFinalB <- precioB[length(precioB)]
+  
+  rentabilidad <- 0
+  
+  for (i in 1:length(precioA)){
+    if (stock[i] == 1) rentabilidad <- rentabilidad + as.numeric(precioFinalA - precioA[[i]])
+    if (stock[i] == 2) rentabilidad <- rentabilidad + as.numeric(precioFinalB - precioB[[i]])
+  }
+  
+  rentabilidad
+}
+
+# Function Test:
+
+precioA <- bolsa$AMZN.Open
+precioB <- bolsa$GOOGL.Open
+stock <- puntosDeCompra(precioA, precioB)
+
+backtesting(precioA, precioB, stock)
+
 
 # Algorithm with vertorization
 
-amazonDiff <- diff(stocks$AMZN.Open)
-googlDiff <- diff(stocks$GOOGL.Open)
-
-stocksDiff <- data.frame(stocks[2:nrow(stocks),])
-stocksDiff$AMZN.Diff <- amazonDiff
-stocksDiff$GOOGL.Diff <- googlDiff
-
-getStock <- function(date,amaznOpen, googlOpen, amaznDiff, googlDiff){
-    
-  if (amaznDiff > googlDiff){
-    return(c(date,"amazon",as.double(amaznOpen)))
-  }
+puntosDeCompraVect <- function(precioA, precioB) {
+  if (!is.numeric(precioA)) stop("A no es numerico")
   
-  else return(c(date,"google",as.double(googlOpen)))
+  precioA_diff <- diff(precioA)
+  precioB_diff <- diff(precioB)
+  
+  compras <- integer(length(precioA))
+  
+  compras[((precioA_diff > 0) & (precioB_diff > 0))] <- 1
+  compras[(compras == 1) & (precioB_diff > precioA_diff)] <- 2
+  compras
+  
 }
 
+backtestingVect <- function(precioA, precioB, stock) {
+  preciosDeCompra <- data.frame(precioA, precioB, stock)
+  colnames(preciosDeCompra) <- c("precioA", "precioB", "stock")
+  
+  precioFinalA <- precioA[length(precioA)]
+  precioFinalB <- precioB[length(precioB)]
+  
+rentabilidad <- preciosDeCompra %>% mutate(rentabilidadParcialA = precioFinalA[[1]] - precioA,
+                                           rentabilidadParcialB = precioFinalB[[1]] - precioB) %>% 
+  select(rentabilidadParcialA,rentabilidadParcialB,stock) %>% 
+  filter(stock == 1 | stock == 2) %>%
+  apply(1,FUN = function(x) x[x[3]]) %>%
+  sum
+  
+  return(rentabilidad)
+}
 
-stocksDiff <- add_rownames(stocksDiff, "date")
+# Function Test:
 
-purchasesVectorized <- stocksDiff %>%
-  select(date,AMZN.Open, GOOGL.Open, AMZN.Diff, GOOGL.Diff) %>%
-  filter((AMZN.Diff > 0) & (GOOGL.Diff > 0)) %>%
-  apply(1,function(x) getStock(x[1], x[2], x[3], x[4], x[5])) %>% t %>% as.data.frame
+precioA <- bolsa$AMZN.Open
+precioB <- bolsa$GOOGL.Open
+stockVect <- puntosDeCompraVect(precioA, precioB)
 
-colnames(purchasesVectorized) <- c("date","site","value")
-purchasesVectorized$date <- as.character(purchasesVectorized$date)
-purchasesVectorized$value <- as.numeric(as.character(purchasesVectorized$value))
+backtestingVect(precioA, precioB, stockVect)
 
 
 ## 3. For this exercise we will use the `airquality` dataset. 
