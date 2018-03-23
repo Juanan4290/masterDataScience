@@ -1,4 +1,4 @@
-# Data Science Curriculum
+﻿# Data Science Curriculum
 
 ## Juan Antonio Morales - Data Scientist in the making
 
@@ -26,7 +26,7 @@ At the end of the master's degree the student will be able to convert data into 
 - __Jupyter-Notebook__ and __RMarkdown__ reporting.
 - Applications for Data Visualization using __Shiny__.
 - __Web Scraping__ with _BeautifulSoup_ and _request_ libraries in Python and _rvest_ and _tidytext_ in R.
-- Advanced __Statistical__ and __Machine Learning__ methods:
+- Advanced __Statistical__ methods:
     ```
     · Sampling and Hypothesis Tests.
     · Statistical Modeling.
@@ -34,4 +34,12 @@ At the end of the master's degree the student will be able to convert data into 
     · Bayesian Statistics.
     · Ridge and Lasso Regularization methods.
     · PCA Dimensionality Reduction and Singular Values Decomposition.
+    ```
+- __Machine Learning__ models:
+    ```
+    · Linear and Logistic Regression.
+    · Support Vector Machines.
+    · K nearest neighbors.
+    · Decision Trees.
+    · Ensambling models: Bagging and Boosting Trees.
     ```
