@@ -34,6 +34,7 @@ At the end of the master's degree the student will be able to convert data into 
     · Bayesian Statistics.
     · Ridge and Lasso Regularization methods.
     · PCA Dimensionality Reduction and Singular Values Decomposition.
+    · Matrix Factorization and Singular Value Decomposition for Recommender Systems
     ```
 - __Machine Learning__ models:
     ```
@@ -42,4 +43,9 @@ At the end of the master's degree the student will be able to convert data into 
     · K nearest neighbors.
     · Decision Trees.
     · Ensambling models: Bagging and Boosting Trees.
+    · Introduction to Deep Learning
+    ```
+- __Big Data__ techonologies:
+    ```
+    · MapReduce
     ```
