@@ -47,5 +47,6 @@ At the end of the master's degree the student will be able to convert data into 
     ```
 - __Big Data__ techonologies:
     ```
-    · MapReduce
+    · Introduction to distributed systems. MapReduce.
+    · PySpark SQL: RDDs, DataFrames and SQL querying.
     ```
